@@ -1,26 +1,26 @@
-import { GetGenresList, GetMoviesGenre, GetPopularMovies } from "../Repository/Repository";
+import { GetGenresList } from "../Repository/Repository";
 
 class GenreService {
     async getGenreList() {
         const repositoryResponse = await GetGenresList();
-        if(repositoryResponse.status) {
-            return repositoryResponse;
-        };
-    };
+        if (repositoryResponse.status) {
+            return view(repositoryResponse);
+        }
+    }
+}
 
-    async getMoviesGenre() {
-        const repositoryResponse = await GetMoviesGenre();
-        if(repositoryResponse.status) {
-            return repositoryResponse;
-        };
-    };
+function view({data}: any) {
+    const {genres} = data;
 
-    async getPopularMovies() {
-        const repositoryResponse = await GetPopularMovies();
-        if(repositoryResponse.status) {
-            return repositoryResponse;
-        };
-    };
-};
+    type typeGenre = { id: number, name: string};
+
+    const genreList = genres.map(
+        ({ id, name }: typeGenre) => ({ id, name})
+    );
+
+return genreList;
+}
+
+
 
 export default GenreService;
