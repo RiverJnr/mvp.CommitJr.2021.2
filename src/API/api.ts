@@ -21,7 +21,7 @@ class GenreController {
     async getMovieGenre(request: Request, response: Response){
         try {
             const genreData = new MoviesService();
-            const idGenre = Number(request.params.idGenre);
+            const idGenre = request.params.idGenre;
             const genreList = await genreData.getMoviesGenre(idGenre);
 
             if(genreList != null){

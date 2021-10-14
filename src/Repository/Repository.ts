@@ -21,9 +21,9 @@ async function GetGenresList() {
     }
 }
 
-async function GetMoviesGenre() {
+async function GetMoviesGenre(idGenre: string) {
     try {
-        const response = await api.get(`/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`);
+        const response = await api.get(`/3/discover/movie?api_key=${api_key}&language=en-US&page=1&with_genres=${idGenre}`);
         if(response.status >= 200 && response.status < 300){
             const movieGenre = response.data;
             return{
