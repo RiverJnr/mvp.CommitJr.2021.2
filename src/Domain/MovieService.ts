@@ -1,25 +1,28 @@
 import { GetMoviesGenre} from "../Repository/Repository";
 
 class MoviesService {
-    async getMoviesGenre() {
+    async getMoviesGenre(idGenre: number) {
         const repositoryResponse = await GetMoviesGenre();
         if (repositoryResponse.status) {
-            return repositoryResponse;
+            return view(repositoryResponse,idGenre);
         }
     }
      
 }
 
-function view({data}: any) {
+function view({data}: any, idGenre: number) {
     const {results} = data;
 
-    type typeGenre = { id: number, title: string};
+    type typeGenre = { id: number, title: string, genre_ids: number};
 
     const genreList = results.map(
-        ({ id, title }: typeGenre) => ({ id, title})
+        ({ id, title, genre_ids }: typeGenre) => ({ id, title, genre_ids})
     );
 
-return genreList;
+    const newGenreList = genreList.find(
+        ( genreList: { genre_ids: number; }) => genreList.genre_ids == idGenre
+    ); 
+return newGenreList;
 }
 
 

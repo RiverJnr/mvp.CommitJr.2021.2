@@ -21,12 +21,14 @@ class GenreController {
     async getMovieGenre(request: Request, response: Response){
         try {
             const genreData = new MoviesService();
-            const genreList = await genreData.getMoviesGenre();
+            const idGenre = Number(request.params.idGenre);
+            const genreList = await genreData.getMoviesGenre(idGenre);
+
             if(genreList != null){
                 return response.send(genreList); 
             };
 
-            return response.send({err: 'Err'});
+            return response.status(500).send({err: 'Err'});
         } catch (err) {
             throw err;
         };

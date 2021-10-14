@@ -4,7 +4,7 @@ class PopularService {
     async getPopularMovies() {
         const repositoryResponse = await GetPopularMovies();
         if (repositoryResponse.status) {
-            return repositoryResponse;
+            return view(repositoryResponse);
         }
     }    
 
