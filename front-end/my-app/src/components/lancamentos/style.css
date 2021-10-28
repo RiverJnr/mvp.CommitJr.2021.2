@@ -1,0 +1,108 @@
+.Lancamentos {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(196, 196, 196, 1);
+  align-items: center;
+}
+
+.avaliation {
+  margin: -21px 0px 0px 90px;
+  width: 20px;
+  height: 20px;
+}
+
+.slider {
+  position: relative;
+  height:68vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.releases-texts {
+  display: flex;
+  flex-direction:column;
+  margin-left: 10px;
+}
+
+.movie-title-original {
+  font-size: 15px;
+  margin: 18px 0px 0px 0px;
+}
+
+.runtime {
+  font-size: 15px;
+  margin: -16px 0px 0px 200px;
+}
+
+.movie-synopsis {
+  font-size: 15px;
+  overflow: auto;
+  margin: 18px 0px 0px 0px;
+  height: 100px;
+}
+
+.image {
+  width: 500px;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.slide {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition: 1s ease;
+  transform: scale(1.0)
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: -120px;
+  font-size: 3rem;
+  color: rgba(164, 164, 164, 1);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  left: -75px;
+  font-size: 3rem;
+  color: rgba(164, 164, 164, 1);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.secao-lacamentos {
+  font-size: 140%;
+}
+
+.title {
+  text-decoration: underline;
+  margin-top: 20px;
+  margin: 0px 0px 20px 0px;
+}
+
+@media (max-width: 100px) {
+  body {
+      font-size:93.75%
+  }
+
+}
+
+@media (max-width: 768) {
+  body {
+      font-size:80.5%
+  }
+}

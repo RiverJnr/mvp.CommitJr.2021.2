@@ -1,0 +1,23 @@
+.footer-edit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(164, 164, 164, 1);
+  height: 80px;
+  padding: 0 60px;
+}
+
+.footer-icons {
+  margin: 8px;
+  justify-content: center;
+}
+  
+.footer-icons > * {
+  margin-inline: 15px;
+}
+
+.logoCommit {
+  height: 1px;
+  width: 1px;
+}

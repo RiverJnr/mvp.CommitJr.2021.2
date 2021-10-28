@@ -1,0 +1,25 @@
+.header-edit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(164, 164, 164, 1);
+    height: 80px;
+    padding: 0 60px;
+}
+
+.menu {
+    font-size: 30px;
+    margin-left: 5vw;
+    color: #fff;
+}
+
+.LogoCommit {
+    height: 80px;
+    margin-left: 50px;
+}
+
+.LogoMovies {
+    height: 80px;
+    margin-right: 50px;
+}
