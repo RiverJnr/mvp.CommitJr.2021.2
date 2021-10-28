@@ -3,7 +3,7 @@ import GenreService from "../Domain/MoviesListService";
 import MoviesService from "../Domain/MoviesGenreService";
 import PopularService from "../Domain/PopularService";
 
-class GenreController {
+class MoviesController {
     async getMoviesList(request: Request, response: Response){
         try {
             const genreData = new GenreService();
@@ -20,12 +20,12 @@ class GenreController {
 
     async getMovieGenre(request: Request, response: Response){
         try {
-            const genreData = new MoviesService();
+            const data = new MoviesService();
             const idGenre = request.params.idGenre;
-            const genreList = await genreData.getMoviesGenre(idGenre);
+            const moviesList = await data.getMoviesGenre(idGenre);
 
-            if(genreList != null){
-                return response.send(genreList); 
+            if(moviesList != null){
+                return response.send(moviesList); 
             };
 
             return response.status(500).send({err: 'Err'});
@@ -49,4 +49,4 @@ class GenreController {
     };
 };
 
-export default GenreController;
+export default MoviesController;

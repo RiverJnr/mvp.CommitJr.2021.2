@@ -1,7 +1,6 @@
-import { SliderData } from './SliderData';
 import ImageSlider from './ImageSlider'
 import './style.css';
-import getGenre from '../../APIs/getGenre';
+import getMovies from '../../APIs/getMovies';
 import React, {useState, useEffect} from 'react';
 
 function Lancamentos(){
@@ -9,7 +8,8 @@ function Lancamentos(){
     const [generos, setGeneros] = useState([]);
 
     async function getGenres() {
-        const genres = await getGenre(35);
+
+        const genres = await getMovies(35);
         setGeneros(genres.data);
     }
 
@@ -18,12 +18,17 @@ function Lancamentos(){
     }, [])
 
     return(
+
         <section className="Lancamentos">
+
             <h1 className="title">Lançamentos</h1>
+
             <div>
-            <ImageSlider slides={SliderData} />
+                <ImageSlider slides={generos} />
             </div>
+
         </section>
+
     );
 }
 

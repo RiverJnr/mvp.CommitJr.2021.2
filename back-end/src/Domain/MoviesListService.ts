@@ -6,6 +6,8 @@ class MoviesListService {
         if (repositoryResponse.status) {
             return view(repositoryResponse);
         }
+
+        return { message: 'Failed to make request.' };
     }
 }
 

@@ -1,7 +1,7 @@
 import api from './baseAPI';
 
 // Class responsible for searching for some films from my back end, using the baseAPI.
-async function getGenre() {
+async function getGenres() {
     try {
         const response = await api.get(`/moviesList`);
             if(response.status === 200){
@@ -22,4 +22,4 @@ async function getGenre() {
     }
 }
 
-export default getGenre;
+export default getGenres;

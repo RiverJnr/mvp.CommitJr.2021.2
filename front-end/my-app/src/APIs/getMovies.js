@@ -4,6 +4,7 @@ import api from './baseAPI';
 async function getMovie(props) {
 
     try {
+
         const response = await api.get(`/moviesGenre/${props}`);
 
             if(response.status === 200){

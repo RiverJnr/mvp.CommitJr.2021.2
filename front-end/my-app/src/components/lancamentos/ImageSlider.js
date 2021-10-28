@@ -1,8 +1,10 @@
-import { SliderData } from './SliderData';
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa';
-import getMovie from '../../APIs/getMovie'
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import getGenres from '../../APIs/getGenres'
 
 const ImageSlider = ({ slides }) => {
     const [current, setCurrent] = useState(0);
@@ -11,7 +13,7 @@ const ImageSlider = ({ slides }) => {
     const [generosMovie, setGenerosMovie] = useState([]);
 
     async function getApiGeneros() {
-        const genresList = await getMovie();
+        const genresList = await getGenres();
         const genres = genresList.status ? genresList.movies : ([]);
         setGenerosMovie(genres);
     };
@@ -36,8 +38,9 @@ const ImageSlider = ({ slides }) => {
             <FaArrowAltCircleLeft className="leftArrow" onClick={prevSlide} />
             <FaArrowAltCircleRight className="rightArrow" onClick={nextSlide} />
 
-            {SliderData.map((slide, index) => {
+            {slides.map((slide, index) => {
                 return(
+
                     <div className={index === current ? 'slide active' : 'slide'} key={index}>
                         {index === current && (
 
@@ -57,13 +60,19 @@ const ImageSlider = ({ slides }) => {
                                 <span className="movie-title-original"><strong>Adult content:</strong> {slide.adult ? "No" : "Yes"}</span>
                                 <span className="runtime"><strong>Runtime: </strong>{`${parseInt(slide.runtime / 60)}h ${slide.runtime % 60}min`}</span>
                                 <span className="movie-title-original"><strong>Avaliation:</strong></span>
-                                <span className="avaliation"></span>  
+                                <span className="avaliation">
+                                    <Box component="fieldset" mb={3} borderColor="transparent">
+                                        <Typography component="legend"></Typography>
+                                        <Rating  value={slide.vote_average / 2} readOnly />
+                                    </Box>     
+                                </span>  
                             </div>
 
                         </>
 
                         )}
                     </div>
+
                 );
             })} 
 
