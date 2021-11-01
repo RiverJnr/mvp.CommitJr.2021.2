@@ -28,7 +28,7 @@ function Footer() {
                 </div>
             </div>
 
-            <img src={Logo} className="LogoMovies" />
+            <img src={Logo} className="LogoMovies" alt="Logo"/>
         
         </footer>
     );

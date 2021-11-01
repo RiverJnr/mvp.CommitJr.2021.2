@@ -1,7 +1,7 @@
 import './style.css';
 import AddIcon from '@mui/icons-material/Add';
-import Card from '../card';
-import * as React from 'react';
+import MovieList from '../../models/MovieList';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider, 
          Button, 
          InputLabel,
@@ -11,6 +11,8 @@ import { ThemeProvider,
          MenuItem,
          createTheme
         } from '@mui/material';
+import getGenres from '../../APIs/getGenres';
+import getMovie from '../../APIs/getMovies'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -41,40 +43,39 @@ const theme = createTheme({
   }
 });
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley WilkersonBradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
-
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
 function Destaques() {
-  const [personName, setPersonName] = React.useState([]);
+  
+  const [generos, setGeneros] = useState([]);
+  const [genero, setGenero] = useState(28);
+
+  const[movies, setMovies] = useState([]);
+
+  async function getGeneros() {
+      const genresList = await getGenres();
+      const genres = genresList.status ? genresList.data : ([]);
+      setGeneros(genres);
+  };
+
+  async function getMovies(){
+      const movieList = await getMovie(genero);
+
+      const moviesResp = movieList.status ? movieList.movies : ([]);
+
+      moviesResp.splice(5, moviesResp.length);
+
+      setMovies(moviesResp);
+  };
+
+  useEffect(() => {
+      getGeneros();
+  }, []);
+
+  useEffect(() => {
+    getMovies();
+  }, [genero]);
 
   const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a the stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-      event.target.value,
-    );
+    setGenero(event.target.value);
   };
 
   return (
@@ -91,32 +92,27 @@ function Destaques() {
                   <Select
                   color="primary"
                   size="small"
-                  value={personName}
+                  value={genero}
                   onChange={handleChange}
                   autoWidth
                   input={<OutlinedInput label="Categoria"/>}
                   MenuProps={MenuProps}
                   >
 
-                    {names.map((name) => (
-                        <MenuItem
-                        key={name}
-                        value={name}
-                        style={getStyles(name, personName, theme)}
-                        >
-                        {name}
-                        </MenuItem>
-                    ))}
+                  {generos.map((genero) => (
+                    
+                    <MenuItem value={genero.id}>
+                      {genero.name}
+                    </MenuItem>
+
+                  ))}
 
                   </Select>
 
             </FormControl>
 
             <div className="card">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <MovieList movies={movies}/>
             </div>
             
             <div className="buttonLoad">

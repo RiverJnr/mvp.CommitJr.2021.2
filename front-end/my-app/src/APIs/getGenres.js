@@ -1,6 +1,7 @@
 import api from './baseAPI';
 
-// Class responsible for searching for some films from my back end, using the baseAPI.
+
+// Class responsible for fetching all my genres from the backend
 async function getGenres() {
     try {
         const response = await api.get(`/moviesList`);

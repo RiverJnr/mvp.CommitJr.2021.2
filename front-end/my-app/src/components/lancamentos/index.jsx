@@ -5,17 +5,20 @@ import React, {useState, useEffect} from 'react';
 
 function Lancamentos(){
 
-    const [generos, setGeneros] = useState([]);
+    const [movie, setMovie] = useState([]);
 
-    async function getGenres() {
+    async function getMovie() {
 
         const genres = await getMovies(35);
-        setGeneros(genres.data);
+        console.log(genres);
+        setMovie(genres.movies);
     }
 
     useEffect(() => {
-        getGenres();
+        getMovie();
     }, [])
+
+    console.log(movie);
 
     return(
 
@@ -24,7 +27,7 @@ function Lancamentos(){
             <h1 className="title">Lançamentos</h1>
 
             <div>
-                <ImageSlider slides={generos} />
+                <ImageSlider slides={movie} />
             </div>
 
         </section>

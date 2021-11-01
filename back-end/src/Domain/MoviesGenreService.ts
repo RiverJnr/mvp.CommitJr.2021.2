@@ -18,34 +18,43 @@ async function view({data}: any) {
 
     const {results} = data;
 
-    let run = getInfo(1234);
-
-
-/*
-    for(let i = 0; i < data.data['results'].length; i++){
-        let valor = await getInfo(Number(data.data['results'][i].id));
-
-        const namesGenres = valor.genres.map((item:any) => ({
-            return item.name;
-        }))
+    const moviesList = await Promise.all(results.map(
+        async function(item : any) {
         
-        let key = await getVideo(parseInt(data.data['results'][i].id));
-        let keyYoutube = key['results'].map(function (item:any, indice:string) {
-            return item.key;
-        });
-    };
-    let movies = await getInfo(results.map((id:number) => ({id})));
-*/
-    type typeMovie = { id: number, title: string, overview: string
-                       original_title: string, adult: boolean
-                       vote_average: number, release_date: string
-                       genre_ids: [], poster_path: string,
-                       backdrop_path: string, runtime: number, keyVideo: boolean};
+            let valor: any = await getInfo(Number(item.id));
+            let {genres} = valor;
 
-    const moviesList = results.map(
-        ({ id, title, overview, original_title, adult, vote_average, release_date, genre_ids, poster_path, backdrop_path, runtime, keyVideo }: typeMovie) => (
-         { id, title, overview, original_title, adult, vote_average, release_date, genre_ids, poster_path, backdrop_path, runtime, keyVideo})
-    );
+            let {runtime} = valor;
+
+            let namesGenres = genres.map(function (item: any){
+                return item.name;
+            });
+
+            let key: any = await getVideo(Number(item.id));
+            let {results} = key;
+
+            let keyYoutube = results.map(function (item:any) {
+                return item.key;
+            }); 
+
+            return{
+                id: item.id,
+                title: item.title,
+                overview: item.overview,
+                popularity: item.popularity,
+                vote_count: item.vote_count,
+                keyVideo: keyYoutube,
+                poster_path: item.poster_path,
+                backdrop_path: item.backdrop_path,
+                original_title: item.original_title,
+                genre_names: namesGenres.toString(),
+                genre_ids: item.genre_ids,
+                release_date: item.release_date,
+                adult: item.adult,
+                vote_average: item.vote_average,
+                runtime: runtime
+            };
+     }));
 
     return moviesList;
 };

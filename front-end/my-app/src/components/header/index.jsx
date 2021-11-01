@@ -30,7 +30,7 @@ function Header(){
 
             <header className="header-edit">
                 
-                <img src={Logo} />
+                <img src={Logo} alt="Logo"/>
 
                 <div className="menu"> 
                     <span>Lançamentos | Destaques</span>

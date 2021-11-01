@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../../components/card';
 
-function MovieList() {
+function MovieList(props) {
 
     const movieStyle = {
         display: 'flex',

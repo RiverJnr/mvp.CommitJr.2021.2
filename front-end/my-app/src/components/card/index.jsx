@@ -1,10 +1,9 @@
-import './style.css'
-import ImgCard from '../../assets/photo_size_select_actual_24px_outlined.svg';
+import './style.css';
 
-function Card() {
+function Card(props) {
     return (
         <div className="card-container">
-          <img className="imgCard" src={ ImgCard } alt="Card img"></img>
+          <img className="imgCard" src={ props.img } alt="props.alt"></img>
         </div>
     )
 }
