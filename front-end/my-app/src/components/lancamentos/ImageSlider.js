@@ -54,7 +54,7 @@ const ImageSlider = ({ slides }) => {
                                 <span className="avaliation">
                                     <Box component="fieldset" mb={3} borderColor="transparent">
                                         <Typography component="legend"></Typography>
-                                        <Rating  value={slide.vote_average / 2} readOnly />
+                                        <Rating color="info" value={slide.vote_average / 2} readOnly />
                                     </Box>
                                 </span>  
                             </div>

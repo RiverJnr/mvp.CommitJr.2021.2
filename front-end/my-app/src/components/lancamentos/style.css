@@ -1,7 +1,7 @@
 .Lancamentos {
   display: flex;
   flex-direction: column;
-  background-color: rgba(196, 196, 196, 1);
+  background-color: #81c784;
   align-items: center;
   font-size: 140%;
 }
@@ -23,7 +23,7 @@
 .releases-texts {
   display: flex;
   flex-direction:column;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .movie-title-original {
@@ -42,6 +42,7 @@
   overflow: auto;
   margin: 18px 0px 0px 0px;
   height: 100px;
+  text-align: left;
 }
 
 .image {
@@ -69,7 +70,7 @@
   top: 50%;
   right: -120px;
   font-size: 3rem;
-  color: rgba(164, 164, 164, 1);
+  color: #212121;
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -80,7 +81,7 @@
   top: 50%;
   left: -75px;
   font-size: 3rem;
-  color: rgba(164, 164, 164, 1);
+  color: #212121;
   z-index: 10;
   cursor: pointer;
   user-select: none;

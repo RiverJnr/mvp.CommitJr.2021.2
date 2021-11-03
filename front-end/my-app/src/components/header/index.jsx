@@ -12,13 +12,13 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 const theme = createTheme({
     palette: {
         primary:{
-            main:"#fff"
+            main:"#212121"
         },
         secondary:{
-          main:"#212121"
+          main:"#fff"
         },
         text: {
-          primary:"#fff",
+          primary:"#212121",
         }
     }
   });

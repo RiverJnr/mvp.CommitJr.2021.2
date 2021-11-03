@@ -28,10 +28,10 @@ const MenuProps = {
 const theme = createTheme({
   palette: {
       primary:{
-          main:"#212121"
+          main:"#81c784"
       },
       secondary:{
-        main:"#fff"
+        main:"#212121"
       },
       text: {
         primary:"#212121",
@@ -100,14 +100,14 @@ function Destaques() {
 
         <div className="highlights">
 
-            <h1 className="title">highlights</h1>
+            <h1 className="title">Highlights</h1>
 
             <FormControl sx={{ marginLeft: 100, width: 200}}>
               
-                <InputLabel id="demo-multiple-name-label">Category</InputLabel>
+                <InputLabel id="demo-multiple-name-label" color="secondary">Category</InputLabel>
 
                   <Select
-                  color="primary"
+                  color="secondary"
                   size="small"
                   value={genero}
                   onChange={handleChange}
@@ -135,7 +135,7 @@ function Destaques() {
             <div className="buttonLoad">
                 <Button variant="contained" 
                         onClick={loadMore} 
-                        color="secondary" 
+                        color="primary" 
                         startIcon={<AddIcon />} 
                         sx={{marginInlineStart: 102, width: 200}}>
                     Load More
