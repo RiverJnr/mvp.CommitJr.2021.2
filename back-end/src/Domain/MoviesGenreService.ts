@@ -56,7 +56,7 @@ async function view({data}: any) {
             };
      }));
 
-    return moviesList.filter((movie:any) => movie.keyVideo.length !== 0 && movie.runtime > 0);
+    return moviesList.filter((movie:any) => movie.keyVideo.length !== 0 && movie.runtime > 0 && movie.poster_path !== null);
 };
 
 async function getInfo(idMovie:number){

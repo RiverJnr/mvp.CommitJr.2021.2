@@ -50,6 +50,9 @@ function Destaques() {
 
   const[movies, setMovies] = useState([]);
 
+  const[selectMovies, setSelect] = useState([]);
+  let[count, setCount] = useState(0);
+
   async function getGeneros() {
       const genresList = await getGenres();
       const genres = genresList.status ? genresList.data : ([]);
@@ -60,9 +63,12 @@ function Destaques() {
       const movieList = await getMovie(genero);
 
       const moviesResp = movieList.status ? movieList.movies : ([]);
+      
+      setSelect(moviesResp.slice(0,moviesResp.length));
 
+      console.log(selectMovies);
       moviesResp.splice(5, moviesResp.length);
-console.log(moviesResp);
+
       setMovies(moviesResp);
   };
 
@@ -79,11 +85,15 @@ console.log(moviesResp);
   };
 
   async function loadMore(){
-    const movieList = await getMovie(genero);
-    const moviesResp = movieList.status ? movieList.movies : ([]);
-
-    setMovies(moviesResp);
-  }
+    const film = selectMovies.slice(count,count+5);
+  
+    setMovies(film);  
+    if(count+5 >= selectMovies.length){
+      setCount(0);
+    }else{
+      setCount(count+5);
+    }  
+}
 
   return (
       <ThemeProvider theme={theme}>
@@ -124,7 +134,7 @@ console.log(moviesResp);
             
             <div className="buttonLoad">
                 <Button variant="contained" 
-                        onClick="loadMore()" 
+                        onClick={loadMore} 
                         color="secondary" 
                         startIcon={<AddIcon />} 
                         sx={{marginInlineStart: 102, width: 200}}>
