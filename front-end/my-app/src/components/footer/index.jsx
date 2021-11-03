@@ -14,7 +14,7 @@ function Footer() {
             </div>
 
             <div className="footer-icons">
-                Produzido por River Junior
+                Make by River Junior
                 <div>   
 
                     <a href="https://github.com/RiverJnr" target="_new">

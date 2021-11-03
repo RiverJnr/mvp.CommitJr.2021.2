@@ -29,8 +29,7 @@ const ImageSlider = ({ slides }) => {
             <FaArrowAltCircleLeft className="leftArrow" onClick={prevSlide} />
             <FaArrowAltCircleRight className="rightArrow" onClick={nextSlide} />
 
-            {slides.filter((slide) => slide.keyVideo.length !== 0 && slide.runtime > 0)
-                   .map((slide, index) => {
+            {slides.map((slide, index) => {
                 return(
 
                     <div className={index === current ? 'slide active' : 'slide'} key={index}>
@@ -39,7 +38,7 @@ const ImageSlider = ({ slides }) => {
                         <>
                             
                             <div className="image" >
-                                <iframe width="500px" title="aaa" height="335" src={`https://www.youtube.com/embed/${slide.keyVideo[0]}`} frameBorder="0" 
+                                <iframe width="500px" title="Trailer" height="335" src={`https://www.youtube.com/embed/${slide.keyVideo[0]}`} frameBorder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
 
@@ -49,7 +48,7 @@ const ImageSlider = ({ slides }) => {
                                 <span className="movie-title-original"><strong>Original title: </strong> {slide.original_title} </span>
                                 <span className="movie-title-original"><strong>Genres:</strong> {slide.genre_names}</span>
                                 <span className="movie-title-original"><strong>Release:</strong> {slide.release_date}</span>
-                                <span className="movie-title-original"><strong>Adult content:</strong> {slide.adult ? "Não" : "Sim"}</span>
+                                <span className="movie-title-original"><strong>Adult content:</strong> {slide.adult ? "Sim" : "Não"}</span>
                                 <span className="runtime"><strong>Runtime: </strong>{`${parseInt(slide.runtime / 60)}h ${slide.runtime % 60}min`}</span>
                                 <span className="movie-title-original"><strong>Avaliation:</strong></span>
                                 <span className="avaliation">

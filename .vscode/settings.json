@@ -1,18 +1,24 @@
 {
     "cSpell.ignoreWords": [
+        "Adulto",
+        "Avaliação",
         "Carregar",
         "Categoria",
+        "Conteúdo",
         "Destaques",
         "Executando",
         "Genero",
         "Generos",
+        "Lançamento",
         "Lançamentos",
         "Pesquisar",
         "Procurar",
         "Produzido",
         "Sinopse",
+        "Título",
         "avaliation",
         "cinza",
+        "codepaths",
         "colorida",
         "commitjr",
         "filme",
@@ -20,7 +26,8 @@
         "lacamentos",
         "mais",
         "numbertext",
-        "secao"
+        "secao",
+        "tsbuildinfo"
     ],
     "cSpell.words": [
         "aplicação"

@@ -90,11 +90,11 @@ console.log(moviesResp);
 
         <div className="highlights">
 
-            <h1 className="title">Destaques</h1>
+            <h1 className="title">highlights</h1>
 
             <FormControl sx={{ marginLeft: 100, width: 200}}>
               
-                <InputLabel id="demo-multiple-name-label">Categoria</InputLabel>
+                <InputLabel id="demo-multiple-name-label">Category</InputLabel>
 
                   <Select
                   color="primary"
@@ -102,7 +102,7 @@ console.log(moviesResp);
                   value={genero}
                   onChange={handleChange}
                   autoWidth
-                  input={<OutlinedInput label="Categoria"/>}
+                  input={<OutlinedInput label="Category"/>}
                   MenuProps={MenuProps}
                   >
 
@@ -123,8 +123,12 @@ console.log(moviesResp);
             </div>
             
             <div className="buttonLoad">
-                <Button variant="contained" onClick="loadMore()" color="secondary" startIcon={<AddIcon />} sx={{marginInlineStart: 102, width: 200}}>
-                    Carregar mais
+                <Button variant="contained" 
+                        onClick="loadMore()" 
+                        color="secondary" 
+                        startIcon={<AddIcon />} 
+                        sx={{marginInlineStart: 102, width: 200}}>
+                    Load More
                 </Button>
             </div>
 

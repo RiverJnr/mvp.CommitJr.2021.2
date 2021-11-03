@@ -33,11 +33,11 @@ function Header(){
                 <img src={Logo} alt="Logo"/>
 
                 <div className="menu"> 
-                    <span>Lançamentos | Destaques</span>
+                    <span>Releases | Highlights</span>
                 </div>
 
                 <TextField 
-                    label="Pesquisar filme"
+                    label="Search Movie"
                     focused
                     InputProps={{
                         startAdornment: (

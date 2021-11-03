@@ -4,7 +4,7 @@ import api from './baseAPI';
 // Class responsible for fetching all my genres from the backend
 async function getGenres() {
     try {
-        const response = await api.get(`/moviesList`);
+        const response = await api.get(`/genresList`);
             if(response.status === 200){
                 const movies = response.data;
                 return ({
