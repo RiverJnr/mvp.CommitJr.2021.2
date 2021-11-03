@@ -18,8 +18,12 @@ function Lancamentos(){
         getMovie();
     }, [])
 
-    console.log(movie);
+    useEffect(() => {
+        console.log(movie);
+    },[movie]);
 
+    console.log(movie);
+setTimeout(() => (console.log(movie)),5000);
     return(
 
         <section className="Lancamentos">

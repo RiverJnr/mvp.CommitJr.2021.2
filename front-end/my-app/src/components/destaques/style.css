@@ -14,7 +14,7 @@
 .card {
     display: flex;
     flex-direction: row;
-    margin: -15px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     align-items: center;
 }
 
@@ -29,7 +29,7 @@
 
 .buttonLoad {
     position: initial;
-    margin: 50px 8px 40px 0px;
+    margin: 80px 8px 40px 0px;
     border-radius: 5px;
     align-items: flex-end;
 }

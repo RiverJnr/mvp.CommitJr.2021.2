@@ -62,7 +62,7 @@ function Destaques() {
       const moviesResp = movieList.status ? movieList.movies : ([]);
 
       moviesResp.splice(5, moviesResp.length);
-
+console.log(moviesResp);
       setMovies(moviesResp);
   };
 
@@ -77,6 +77,13 @@ function Destaques() {
   const handleChange = (event) => {
     setGenero(event.target.value);
   };
+
+  async function loadMore(){
+    const movieList = await getMovie(genero);
+    const moviesResp = movieList.status ? movieList.movies : ([]);
+
+    setMovies(moviesResp);
+  }
 
   return (
       <ThemeProvider theme={theme}>
@@ -116,7 +123,7 @@ function Destaques() {
             </div>
             
             <div className="buttonLoad">
-                <Button variant="contained" color="secondary" startIcon={<AddIcon />} sx={{marginInlineStart: 102, width: 200}}>
+                <Button variant="contained" onClick="loadMore()" color="secondary" startIcon={<AddIcon />} sx={{marginInlineStart: 102, width: 200}}>
                     Carregar mais
                 </Button>
             </div>
