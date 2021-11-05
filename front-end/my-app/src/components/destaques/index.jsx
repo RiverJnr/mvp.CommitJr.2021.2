@@ -37,8 +37,8 @@ const theme = createTheme({
         primary:"#212121",
         secondary:"#212121",
       },
-      action:{
-        active:"#212121"
+      background:{
+        paper:"#81c784"
       },
   }
 });
